@@ -13,6 +13,7 @@ view: summary {
   }
 
   dimension: combined_key {
+    hidden: yes
     type: string
     sql: ${TABLE}.combined_key ;;
   }
@@ -28,6 +29,7 @@ view: summary {
   }
 
   dimension_group: date {
+    hidden: yes
     type: time
     timeframes: [
       raw,
@@ -48,16 +50,19 @@ view: summary {
   }
 
   dimension: fips {
+    hidden: yes
     type: number
     sql: ${TABLE}.fips ;;
   }
 
   dimension: latitude {
     type: number
+    hidden: yes
     sql: ${TABLE}.latitude ;;
   }
 
   dimension: location_geom {
+    label: "Location"
     type: location
     sql_latitude:${TABLE}.latitude ;;
     sql_longitude:${TABLE}.longitude ;;
@@ -65,6 +70,7 @@ view: summary {
   }
 
   dimension: longitude {
+    hidden: yes
     type: number
     sql: ${TABLE}.longitude ;;
   }

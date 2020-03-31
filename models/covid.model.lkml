@@ -25,9 +25,6 @@ explore: summary {
       AND ${last_report_date.country_region} = ${summary.country_region}
       AND ${last_report_date.province_state} = ${summary.province_state}
             AND ${last_report_date.last_report_date} = ${summary.date_date};;
-
-
-
   }
 
 }
