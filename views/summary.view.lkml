@@ -81,4 +81,26 @@ view: summary {
     type: count
     drill_fields: []
   }
+
+  measure: sum_confirmed {
+    type: sum
+    sql: ${TABLE}.confirmed ;;
+  }
+
+  measure: sum_recovered {
+    type: sum
+    sql: ${TABLE}.recovered ;;
+  }
+
+  measure: sum_deaths {
+    type: sum
+    sql: ${TABLE}.deaths ;;
+  }
+
+  measure: death_rate {
+    type: number
+    value_format: "0.00%"
+    sql: SAFE_DIVIDE(${sum_deaths} , ${sum_confirmed}) ;;
+  }
+
 }

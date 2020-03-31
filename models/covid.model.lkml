@@ -17,3 +17,5 @@ explore: deaths {}
 explore: recovered_cases {}
 
 explore: summary {}
+
+explore: summary_changes {}
