@@ -57,7 +57,7 @@ view: summary {
 
   dimension: latitude {
     type: number
-    hidden: yes
+    #hidden: yes
     sql: ${TABLE}.latitude ;;
   }
 
@@ -70,14 +70,27 @@ view: summary {
   }
 
   dimension: longitude {
-    hidden: yes
+   # hidden: yes
     type: number
     sql: ${TABLE}.longitude ;;
   }
 
   dimension: province_state {
+    map_layer_name: us_states
     type: string
     sql: ${TABLE}.province_state ;;
+  }
+
+  dimension: cleaned_state {
+    description: "Only New England for now"
+    type: string
+    sql: case when ${province_state} like '%, MA' or ${province_state} = 'Massachusetts' then 'Massachusetts'
+          when ${province_state} like '%, CT' or ${province_state} = 'Connecticut' then 'Connecticut'
+          when ${province_state} like '%, VT' or ${province_state} = 'Vermont' then 'Vermont'
+          when ${province_state} like '%, ME' or ${province_state} = 'Maine' then 'Maine'
+          when ${province_state} like '%, RI' or ${province_state} = 'Rhode Island' then 'Rhode Island'
+          when ${province_state} like '%, NH' or ${province_state} = 'New Hampshire' then 'New Hampshire'
+          else 'everywhere else in the world' end ;;
   }
 
   dimension: recovered {

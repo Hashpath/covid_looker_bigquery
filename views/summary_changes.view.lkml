@@ -130,18 +130,40 @@ view: summary_changes {
     sql: SAFE_DIVIDE(${new_deaths} * 1.0 , ${previous_days_deaths} ) ;;
   }
 
+  measure: death_rate {
+    type: number
+    value_format: "0.00%"
+    sql: SAFE_DIVIDE(${total_deaths_to_date} , ${total_confirmed_to_date}) ;;
+  }
+
   ### Filtered to MA ###
 
   measure: total_cases_to_date_ma {
+    group_label: "MA Measures"
     type: sum
     filters: [cleaned_state: "Massachusetts"]
     sql: ${TABLE}.total_confirmed_to_date ;;
   }
 
+  measure: total_deaths_to_date_ma {
+    group_label: "MA Measures"
+    type: sum
+    filters: [cleaned_state: "Massachusetts"]
+    sql: ${TABLE}.total_deaths_to_date ;;
+  }
+
   measure: percent_cases_ma {
+    group_label: "MA Measures"
     type: number
     value_format: "0.00%"
     sql: SAFE_DIVIDE(${total_cases_to_date_ma} * 1.0 , ${total_confirmed_to_date}) ;;
+  }
+
+  measure: death_rate_ma {
+    group_label: "MA Measures"
+    type: number
+    value_format: "0.00%"
+    sql: SAFE_DIVIDE(${total_deaths_to_date_ma} , ${total_cases_to_date_ma}) ;;
   }
 
 
