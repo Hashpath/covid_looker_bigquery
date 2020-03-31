@@ -7,7 +7,7 @@ view: summary {
     sql: ${TABLE}.active ;;
   }
 
-  dimension: admin2 {
+  dimension: county_subregion {
     type: string
     sql: ${TABLE}.admin2 ;;
   }
@@ -58,8 +58,10 @@ view: summary {
   }
 
   dimension: location_geom {
-    type: string
-    sql: ${TABLE}.location_geom ;;
+    type: location
+    sql_latitude:${TABLE}.latitude ;;
+    sql_longitude:${TABLE}.longitude ;;
+
   }
 
   dimension: longitude {
