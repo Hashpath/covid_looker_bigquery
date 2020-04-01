@@ -172,16 +172,4 @@ view: summary {
     sql: SAFE_DIVIDE(${sum_deaths} , ${sum_confirmed}) ;;
   }
 
-  measure: cleaned_state_m {
-    description: "Only New England for now"
-    type: string
-    sql: max(case when ${province_state} like '%, MA' or ${province_state} = 'Massachusetts' then 'Massachusetts'
-          when ${province_state} like '%, CT' or ${province_state} = 'Connecticut' then 'Connecticut'
-          when ${province_state} like '%, VT' or ${province_state} = 'Vermont' then 'Vermont'
-          when ${province_state} like '%, ME' or ${province_state} = 'Maine' then 'Maine'
-          when ${province_state} like '%, RI' or ${province_state} = 'Rhode Island' then 'Rhode Island'
-          when ${province_state} like '%, NH' or ${province_state} = 'New Hampshire' then 'New Hampshire'
-          else 'everywhere else in the world' end );;
-  }
-
 }
