@@ -3,11 +3,11 @@ view: last_report_date {
     sql: SELECT
       country_region,
       province_state,
-      admin2 as county_subregion,
+      -- admin2 as county_subregion,
       max(date) as last_report_date,
 
       FROM `bigquery-public-data.covid19_jhu_csse.summary`
-      GROUP BY 1,2,3
+      GROUP BY 1,2
  ;;
   }
 
