@@ -24,8 +24,9 @@ explore: summary {
   join: last_report_date {
     type: left_outer
     relationship: one_to_one
-    sql_on: ${summary.county_subregion} = ${last_report_date.county_subregion}
-      -- AND ${last_report_date.country_region} = ${summary.country_region}
+    sql_on:
+        ${last_report_date.country_region} = ${summary.country_region}
+     -- AND  ${summary.county_subregion} = ${last_report_date.county_subregion}
        AND ${last_report_date.province_state} = ${summary.province_state}
             AND ${last_report_date.last_report_date} = ${summary.date_date};;
   }
