@@ -51,7 +51,7 @@ view: summary_changes {
   }
 
   dimension: cleaned_state {
-    description: "Only New England for now"
+    description: "US States"
     type: string
     sql: case
 
