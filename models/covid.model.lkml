@@ -19,6 +19,14 @@ explore: recovered_cases {}
 
 explore: snapshot {}
 
+explore: most_recent {
+  join: state_population {
+    type: left_outer
+    relationship: one_to_one
+    sql_on: ${state_population.state_name}=${most_recent.state} ;;
+  }
+}
+
 explore: summary {
 
   join: last_report_date {
