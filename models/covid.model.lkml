@@ -2,7 +2,6 @@ connection: "hashpath-bigquery"
 
 # include all the views
 include: "/views/**/*.view"
-include: "../state_map.dashboard.lookml"
 include: "../covid_massachusetts.dashboard.lookml"
 
 
