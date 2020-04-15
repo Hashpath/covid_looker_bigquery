@@ -136,7 +136,7 @@ when ${province_state} like '%, WY'or ${province_state} = 'Wyoming' THEN 'Wyomin
   measure: new_cases_perc {
     type: number
     value_format: "0.00%"
-    sql: SAFE_DIVIDE(${new_cases} * 1.0 , ${previous_days_cases} ) ;;
+    sql: SAFE_DIVIDE(${previous_days_cases}-${new_cases} * 1.0 , ${previous_days_cases} ) ;;
   }
 
   ### Recoveries ####
@@ -175,7 +175,7 @@ when ${province_state} like '%, WY'or ${province_state} = 'Wyoming' THEN 'Wyomin
   measure: new_deaths_perc {
     type: number
     value_format: "0.00%"
-    sql: SAFE_DIVIDE(${new_deaths} * 1.0 , ${previous_days_deaths} ) ;;
+    sql: SAFE_DIVIDE(${new_deaths}-${previous_days_deaths}  * 1.0 , ${previous_days_deaths} ) ;;
   }
 
   measure: death_rate {
