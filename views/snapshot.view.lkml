@@ -62,9 +62,7 @@ view: snapshot {
       <div style="font-size:18px;padding-top:10px">Total Deaths:
     <b> {{ snapshot.total_deaths_to_date._rendered_value }} </b>
     </div>
-    <div style="font-size:14px">
-   <b>{{ snapshot.new_deaths._rendered_value }}</b> new deaths.</b>
-    </div>
+
 
     <div style="font-size:12px;padding-top:10px">
 
