@@ -57,8 +57,7 @@ view: snapshot {
     <b> {{ snapshot.total_confirmed_to_date._rendered_value }} </b>
     </div>
     <div style="font-size:14px">
-    <b>{{ snapshot.new_cases._rendered_value }}</b> new cases, a <b>{{ snapshot.new_cases_perc._rendered_value }}</b>
-        change since previous day.
+    <b>{{ snapshot.new_cases._rendered_value }}</b> new cases.
     </div>
       <div style="font-size:18px;padding-top:10px">Total Deaths:
     <b> {{ snapshot.total_deaths_to_date._rendered_value }} </b>
